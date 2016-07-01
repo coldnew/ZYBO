@@ -39,7 +39,7 @@ set_property "default_lib" "xil_defaultlib" $obj
 set_property "part" $part $obj
 set_property "board_part" $brd_part $obj
 set_property "simulator_language" "Mixed" $obj
-set_property "target_language" "VHDL" $obj
+set_property "target_language" "Verilog" $obj
 
 # Create 'sources_1' fileset (if not found)
 if {[string equal [get_filesets -quiet sources_1] ""]} {
