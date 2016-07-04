@@ -20,7 +20,7 @@ set script_folder [_tcl::get_script_folder]
 ################################################################
 # Check if script is running in correct Vivado version.
 ################################################################
-set scripts_vivado_version 2016.1
+set scripts_vivado_version 2016.2
 set current_vivado_version [version -short]
 
 if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
@@ -370,8 +370,8 @@ CONFIG.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ {125.000000} \
 CONFIG.PCW_ACT_ENET1_PERIPHERAL_FREQMHZ {10.000000} \
 CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {100.000000} \
 CONFIG.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ {142.857132} \
-CONFIG.PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ {200.000000} \
-CONFIG.PCW_ACT_FPGA3_PERIPHERAL_FREQMHZ {50.000000} \
+CONFIG.PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ {10.000000} \
+CONFIG.PCW_ACT_FPGA3_PERIPHERAL_FREQMHZ {10.000000} \
 CONFIG.PCW_ACT_PCAP_PERIPHERAL_FREQMHZ {200.000000} \
 CONFIG.PCW_ACT_QSPI_PERIPHERAL_FREQMHZ {200.000000} \
 CONFIG.PCW_ACT_SDIO_PERIPHERAL_FREQMHZ {50.000000} \
@@ -404,7 +404,8 @@ CONFIG.PCW_CAN_PERIPHERAL_DIVISOR1 {1} \
 CONFIG.PCW_CAN_PERIPHERAL_FREQMHZ {100} \
 CONFIG.PCW_CLK0_FREQ {100000000} \
 CONFIG.PCW_CLK1_FREQ {142857132} \
-CONFIG.PCW_CLK2_FREQ {200000000} \
+CONFIG.PCW_CLK2_FREQ {10000000} \
+CONFIG.PCW_CLK3_FREQ {10000000} \
 CONFIG.PCW_CPU_CPU_6X4X_MAX_RANGE {667} \
 CONFIG.PCW_CPU_CPU_PLL_FREQMHZ {1300.000} \
 CONFIG.PCW_CPU_PERIPHERAL_CLKSRC {ARM PLL} \
@@ -479,16 +480,16 @@ CONFIG.PCW_EN_UART0 {1} \
 CONFIG.PCW_EN_UART1 {1} \
 CONFIG.PCW_EN_USB0 {1} \
 CONFIG.PCW_FCLK0_PERIPHERAL_CLKSRC {IO PLL} \
-CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {10} \
-CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {1} \
+CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {5} \
+CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {2} \
 CONFIG.PCW_FCLK1_PERIPHERAL_CLKSRC {IO PLL} \
 CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR0 {7} \
 CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR1 {1} \
 CONFIG.PCW_FCLK2_PERIPHERAL_CLKSRC {IO PLL} \
-CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR0 {5} \
+CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR0 {1} \
 CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR1 {1} \
 CONFIG.PCW_FCLK3_PERIPHERAL_CLKSRC {IO PLL} \
-CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR0 {20} \
+CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR0 {1} \
 CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR1 {1} \
 CONFIG.PCW_FCLK_CLK0_BUF {true} \
 CONFIG.PCW_FCLK_CLK1_BUF {true} \
@@ -498,6 +499,14 @@ CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ {200} \
 CONFIG.PCW_FPGA3_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
 CONFIG.PCW_FPGA_FCLK1_ENABLE {1} \
+CONFIG.PCW_FTM_CTI_IN0 {<Select>} \
+CONFIG.PCW_FTM_CTI_IN1 {<Select>} \
+CONFIG.PCW_FTM_CTI_IN2 {<Select>} \
+CONFIG.PCW_FTM_CTI_IN3 {<Select>} \
+CONFIG.PCW_FTM_CTI_OUT0 {<Select>} \
+CONFIG.PCW_FTM_CTI_OUT1 {<Select>} \
+CONFIG.PCW_FTM_CTI_OUT2 {<Select>} \
+CONFIG.PCW_FTM_CTI_OUT3 {<Select>} \
 CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE {0} \
 CONFIG.PCW_GPIO_EMIO_GPIO_IO {<Select>} \
 CONFIG.PCW_GPIO_MIO_GPIO_ENABLE {1} \
@@ -1066,6 +1075,7 @@ CONFIG.PCW_CAN_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_CLK0_FREQ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_CLK1_FREQ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_CLK2_FREQ.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_CLK3_FREQ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_CPU_CPU_6X4X_MAX_RANGE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_CPU_CPU_PLL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_CPU_PERIPHERAL_CLKSRC.VALUE_SRC {DEFAULT} \
@@ -1148,6 +1158,14 @@ CONFIG.PCW_FCLK_CLK1_BUF.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA3_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA_FCLK0_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA_FCLK1_ENABLE.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_IN0.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_IN1.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_IN2.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_IN3.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_OUT0.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_OUT1.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_OUT2.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_OUT3.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_GPIO_EMIO_GPIO_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_GPIO_MIO_GPIO_IO.VALUE_SRC {DEFAULT} \
@@ -1770,16 +1788,16 @@ preplace inst axi_gpio_iic -pg 1 -lvl 7 -y 1760 -defaultsOSRD
 preplace inst v_tc_0 -pg 1 -lvl 6 -y 1180 -defaultsOSRD
 preplace inst axi_vdma_0 -pg 1 -lvl 5 -y 1000 -defaultsOSRD
 preplace inst xlconstant_0 -pg 1 -lvl 8 -y 1980 -defaultsOSRD
-preplace inst xadc_wiz_0 -pg 1 -lvl 1 -y 1080 -defaultsOSRD
 preplace inst axi_gpio_sw -pg 1 -lvl 8 -y 1580 -defaultsOSRD
 preplace inst xlconstant_1 -pg 1 -lvl 5 -y 1120 -defaultsOSRD
+preplace inst xadc_wiz_0 -pg 1 -lvl 1 -y 1080 -defaultsOSRD
 preplace inst axi_gpio_btn -pg 1 -lvl 8 -y 1300 -defaultsOSRD
-preplace inst proc_sys_reset_0 -pg 1 -lvl 3 -y 590 -defaultsOSRD
 preplace inst axi_gpio_led -pg 1 -lvl 8 -y 1420 -defaultsOSRD
 preplace inst xlconcat_0 -pg 1 -lvl 2 -y 1290 -defaultsOSRD
-preplace inst proc_sys_reset_1 -pg 1 -lvl 1 -y 810 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 3 -y 590 -defaultsOSRD
 preplace inst axi_gpio_hdmi -pg 1 -lvl 8 -y 1160 -defaultsOSRD
 preplace inst rgb2dvi_0 -pg 1 -lvl 8 -y 1030 -defaultsOSRD
+preplace inst proc_sys_reset_1 -pg 1 -lvl 1 -y 810 -defaultsOSRD
 preplace inst pmod_bridge_jb -pg 1 -lvl 8 -y 860 -defaultsOSRD
 preplace inst axis_subset_converter_0 -pg 1 -lvl 6 -y 970 -defaultsOSRD
 preplace inst pmod_bridge_jc -pg 1 -lvl 8 -y 1790 -defaultsOSRD
@@ -1790,10 +1808,10 @@ preplace inst pmod_bridge_je -pg 1 -lvl 8 -y 700 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 8 -y 1900 -defaultsOSRD
 preplace inst axi_gpio_spi -pg 1 -lvl 7 -y 870 -defaultsOSRD
 preplace inst axi_mem_intercon -pg 1 -lvl 2 -y 600 -defaultsOSRD
-preplace inst util_ds_buf_0 -pg 1 -lvl 7 -y 1900 -defaultsOSRD
 preplace inst processing_system7_0_axi_periph -pg 1 -lvl 4 -y 370 -defaultsOSRD
 preplace inst axi_iic_jc -pg 1 -lvl 7 -y 1480 -defaultsOSRD
 preplace inst axi_gpio_uart -pg 1 -lvl 7 -y 690 -defaultsOSRD
+preplace inst util_ds_buf_0 -pg 1 -lvl 7 -y 1900 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 3 -y 940 -defaultsOSRD
 preplace netloc axi_vdma_0_M_AXI_MM2S 1 1 5 410 720 NJ 720 NJ 810 NJ 810 2010
 preplace netloc axi_gpio_iic_GPIO2 1 7 1 2790
